@@ -15,3 +15,9 @@ Deploy your actual application to your-domain.com, then deploy this project to w
 Preferred server-side redirect over the typically recommended client-side redirect as I want to be able to forward api queries or even search engine bots. I also wanted it to be applicable to any hostname with a www. so it's a bit regexy and just forwards all requests.
 
 Very simple project... If you need it to be bulletproof or need to issue anything other than 301, PRs are welcome.
+
+## Example
+
+Visit http://www.tabcycle.com (notice the www)
+
+You will be redirected to tabcycle.com, without the client-side needing to load (even is javascript is disabled on the client)
