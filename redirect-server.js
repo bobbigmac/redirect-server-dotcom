@@ -1,7 +1,8 @@
 if(Meteor.isServer) {
   Router.route('/(.*)', function () {
     var host = Meteor.absoluteUrl();
-    var redirectHost = host.replace(/(^https?:\/\/)?(.*)?(\.meteor.com$)/gim, '$1$2.com');
+    var redirectHost = host.replace(/(^https?:\/\/)?(.*)?(\.meteor\.com\/?$)/gim, '$1$2.com');
+    //console.log('host', host, 'redirectHost', redirectHost);
     if(host != redirectHost) {
       var redirectUrl = redirectHost+(this.params[0]||'');
       
