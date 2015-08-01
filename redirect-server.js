@@ -1,7 +1,7 @@
 if(Meteor.isServer) {
   Router.route('/(.*)', function () {
     var host = Meteor.absoluteUrl();
-    var redirectHost = host.replace(/(^https?:\/\/)?(www\.)?(.*$)/gim, '$1$3');
+    var redirectHost = host.replace(/(^https?:\/\/)?(.*)?(\.meteor.com$)/gim, '$1$2.com');
     if(host != redirectHost) {
       var redirectUrl = redirectHost+(this.params[0]||'');
       
@@ -12,7 +12,7 @@ if(Meteor.isServer) {
         this.response.end();
       }
     } else {
-      this.response.write('Do not deploy this project to '+host+' as it does not have a www.');
+      this.response.write('Do not deploy this project to '+host+' as it is not a whatever.meteor.com url.');
       this.response.end();
     }
   }, { where: 'server' });
